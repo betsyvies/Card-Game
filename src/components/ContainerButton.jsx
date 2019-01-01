@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from './ButtonChange';
+import Button from './Button';
 import '../css/App.css'
 
 class ContainerButton extends Component {

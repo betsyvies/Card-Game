@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import '../css/App.css';
 
 class Card extends Component {
+
+  ShowCard = () => {
+    
+  }
+
   render() {
     return (
-      <div className="flex center-flex">
-        <div className="card">
-        </div>
+      <div className="">
       </div>
 
     );

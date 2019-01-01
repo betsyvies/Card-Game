@@ -48,12 +48,8 @@
   height: 10vh
 }
 
-.container-image-card {
-  width: 20%;
-}
-
 .container-icon{
-  height: 2.8rem;
+  height: 3.8rem;
   width: 2.8rem
 }
 
@@ -105,5 +101,9 @@
   background-color:rgba(225, 225, 225);
   opacity: 0.25;
   z-index: 1000;
+  margin: 1rem
+}
+
+.image-card {
   margin: 1rem
 }
