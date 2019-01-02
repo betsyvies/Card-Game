@@ -3,29 +3,24 @@ import CardShadow from './CardShadow';
 import Card from './Card';
 import '../../css/App.css'
 
-const cards = [{ value: 1 }, { value: 2 }, { value: 3 }, { value: 4 }]
+//const cards = [{ value: 1 }, { value: 2 }, { value: 3 }, { value: 4 }]
 
 class ShowCard extends Component {
-
-
   componentWillMount() {    
-    const { data } = this.props
+    const { data, onGetCardRandom } = this.props
     const numCards = this.randomCard(data)
-    const numCardsParts = this.randomCard(data)
-    console.log(data)
-    numCards.map(e => this.getValueCard(e, data))
-    numCardsParts.map(e => this.getValueCard(e, data))
+    const arrCard = []
+
+    numCards.sort().map(e => this.getValueCard(e, data, 1, arrCard))
+    numCards.map(e => this.getValueCard(e, data, 2, arrCard))
+    onGetCardRandom(arrCard)
   }
 
-  getValueCard = (numCard, data) => {
-    const { onGetCardRandom, cardsRandom } = this.props
+  getValueCard = (numCard, data, num, arrCard) => {
     data.map(e => {
-      e.value.map(i => {
-        if (i.id === numCard) {
-          cardsRandom.push(i)
-          onGetCardRandom(cardsRandom)
-        }
-      })
+      return e.value
+            .filter(i => i.id === numCard)
+            .map((i) => arrCard.push({id: i.id + num, image: i.image, disabled: false}))
     })
   }
 
@@ -39,10 +34,10 @@ class ShowCard extends Component {
   }
 
   render() {
-    const { cardsRandom, ids, onGetIdCard } = this.props
+    const { cardsRandom, ids, onGetIdCard, data, onChangeData, onGetCardRandom } = this.props
     return (
       <div className="container-cards">
-        {cardsRandom.map(elem => <Card key={elem.id} data={elem} onGetIdCard={onGetIdCard} ids={ids}/>)}
+        {cardsRandom.map((elem, index) => <Card key={index} data={elem} dataSupport={cardsRandom} onGetIdCard={onGetIdCard} ids={ids} dataAll={data} onChangeData={onChangeData} onGetCardRandom={onGetCardRandom}/>)}
       </div>
     );
   }

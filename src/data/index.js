@@ -56,7 +56,7 @@ import ThirteenS from '../assets/images/cards/swords/13-swords.gif'
 
 export default [
   {
-    id: 'clovers', 
+    id: 'C', 
     value: [
       {id: '1C', image: OneC},
       {id: '2C', image: TwoC},
@@ -74,7 +74,7 @@ export default [
     ]
   },
   {
-    id: 'diamonds', 
+    id: 'D', 
     value: [
       {id: '1D', image: OneD},
       {id: '2D', image: TwoD},
@@ -92,7 +92,7 @@ export default [
     ]
   },
   {
-    id: 'hearts', 
+    id: 'H', 
     value: [
       {id: '1H', image: OneH},
       {id: '2H', image: TwoH},
@@ -110,7 +110,7 @@ export default [
     ]
   },
   {
-    id: 'swords', 
+    id: 'S', 
     value: [
       {id: '1S', image: OneS},
       {id: '2S', image: TwoS},
