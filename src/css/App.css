@@ -104,6 +104,14 @@
   margin: 1rem
 }
 
-.image-card {
+.container-cards {
+  width: 60%;
+  display: inline-block
+}
+
+.button-card {
+  border: 0;
+  padding: 0;
+  outline: none;
   margin: 1rem
 }

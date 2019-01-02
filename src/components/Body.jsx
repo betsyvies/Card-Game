@@ -5,11 +5,10 @@ import '../css/App.css'
 
 class Body extends Component {
 	render() {
-		const { onGetIdCard, ids } = this.props
 		return (
 			<div className="body">
 			  <Header/>
-			  <Table onGetIdCard={onGetIdCard} ids={ids} />
+			  <Table/>
 			</div>
 		);
 	}

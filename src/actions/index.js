@@ -5,3 +5,19 @@ export function getIdCard(ids) {
     ids
   };
 }
+
+/* Esta acción cambia el estado de la data */
+export function changeData(data) {
+  return {
+    type: 'CHANGE_DATA',
+    data
+  };
+}
+
+/* Esta acción cambia el estado de la data */
+export function getCardRandom(cardsRandom) {
+  return {
+    type: 'GET_CARD_RANDOM',
+    cardsRandom
+  };
+}
