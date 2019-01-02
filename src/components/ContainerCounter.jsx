@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Counter from './Counter';
+import Counter from '../containers/Counter';
 import Card from '../assets/images/others/cards.svg';
 import '../css/App.css'
 

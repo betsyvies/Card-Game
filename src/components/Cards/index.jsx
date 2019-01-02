@@ -34,10 +34,10 @@ class ShowCard extends Component {
   }
 
   render() {
-    const { cardsRandom, ids, onGetIdCard, data, onChangeData, onGetCardRandom } = this.props
+    const { cardsRandom, ids, onGetIdCard, data, onChangeData, onGetCardRandom, onCountCouples } = this.props
     return (
       <div className="container-cards">
-        {cardsRandom.map((elem, index) => <Card key={index} data={elem} dataSupport={cardsRandom} onGetIdCard={onGetIdCard} ids={ids} dataAll={data} onChangeData={onChangeData} onGetCardRandom={onGetCardRandom}/>)}
+        {cardsRandom.map((elem, index) => <Card key={index} data={elem} dataSupport={cardsRandom} onGetIdCard={onGetIdCard} ids={ids} dataAll={data} onChangeData={onChangeData} onGetCardRandom={onGetCardRandom} onCountCouples={onCountCouples}/>)}
       </div>
     );
   }

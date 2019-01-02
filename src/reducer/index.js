@@ -3,7 +3,8 @@ import data from '../data'
 const INITIAL_STATE = {
   data: data,
   ids: [],
-  cardsRandom: []
+  cardsRandom: [],
+  totalCouples: 0
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -22,6 +23,11 @@ export default (state = INITIAL_STATE, action) => {
       return { 
         ...state,
         cardsRandom: action.cardsRandom
+      }
+    case 'COUNT_COUPLES':
+      return { 
+        ...state,
+        totalCouples: action.totalCouples
       }
     default:
       return state;

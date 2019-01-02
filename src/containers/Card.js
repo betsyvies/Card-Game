@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getIdCard, changeData, getCardRandom } from '../actions';
+import { getIdCard, changeData, getCardRandom, countCouples } from '../actions';
 import Card from '../components/Cards'
 
 const mapStateToProps = state => {
@@ -14,7 +14,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onGetIdCard: ids => dispatch(getIdCard(ids)),
     onChangeData: data => dispatch(changeData(data)),
-    onGetCardRandom: cardsRandom => dispatch(getCardRandom(cardsRandom))
+    onGetCardRandom: cardsRandom => dispatch(getCardRandom(cardsRandom)),
+    onCountCouples: totalCouples => dispatch(countCouples(totalCouples))
   };
 };
 

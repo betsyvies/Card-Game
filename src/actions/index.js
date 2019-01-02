@@ -14,10 +14,18 @@ export function changeData(data) {
   };
 }
 
-/* Esta acción cambia el estado de la data */
+/* Esta acción cambia la data */
 export function getCardRandom(cardsRandom) {
   return {
     type: 'GET_CARD_RANDOM',
     cardsRandom
+  };
+}
+
+/* Esta acción cuenta las parejas */
+export function countCouples(totalCouples) {
+  return {
+    type: 'COUNT_COUPLES',
+    totalCouples
   };
 }
