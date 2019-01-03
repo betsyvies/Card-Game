@@ -6,7 +6,7 @@ import '../css/App.css'
 class ContainerButton extends Component {
   render() {
     return (
-      <div className="container-counter flex center-flex">
+      <div className="container-counter flex">
         <div className="flex">
           <img src={Card} alt="icon-card" className="container-icon" />
           <p className="text">Parejas:</p>

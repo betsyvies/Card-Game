@@ -6,7 +6,7 @@ import '../css/App.css'
 class Header extends Component {
   render() {
     return (
-      <div className="header flex center-flex">
+      <div className="header flex space-between">
         <Logo />
         <ContainerCounter />
       </div>
