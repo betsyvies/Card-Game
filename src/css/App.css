@@ -113,7 +113,11 @@
   border: 0;
   padding: 0;
   outline: none;
-  margin: 1rem
+  margin: 1rem;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 80px;
+  background-position:center
 }
 
 .image-card {

@@ -10,22 +10,17 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'GET_ID_CARD':
-      return { 
+      return {
         ...state,
         ids: action.ids
       }
-    case 'CHANGE_DATA':
-      return { 
-        ...state,
-        data: action.data
-      }
     case 'GET_CARD_RANDOM':
-      return { 
+      return {
         ...state,
         cardsRandom: action.cardsRandom
       }
     case 'COUNT_COUPLES':
-      return { 
+      return {
         ...state,
         totalCouples: action.totalCouples
       }

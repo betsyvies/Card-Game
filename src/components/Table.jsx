@@ -3,15 +3,15 @@ import Cards from '../containers/Card';
 import '../css/App.css'
 
 class Table extends Component {
-	render() {
-		return (
+  render() {
+    return (
       <div className="flex center-flex container-table">
         <div>
-          <Cards/>
+          <Cards />
         </div>
       </div>
-		);
-	}
+    );
+  }
 }
 
 export default Table;

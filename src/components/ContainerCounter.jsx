@@ -8,10 +8,10 @@ class ContainerButton extends Component {
     return (
       <div className="container-counter flex center-flex">
         <div className="flex">
-          <img src={Card} alt="icon-card" className="container-icon"/>
-          <p className="text">Pares:</p>
+          <img src={Card} alt="icon-card" className="container-icon" />
+          <p className="text">Parejas:</p>
         </div>
-        <Counter/>
+        <Counter />
       </div>
     );
   }

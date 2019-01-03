@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ContainerCounter from './ContainerCounter';
-import ContainerButton from './ContainerButton';
+import Logo from './Logo';
 import '../css/App.css'
 
 class Header extends Component {
   render() {
     return (
       <div className="header flex center-flex">
-        <ContainerButton/>
-        <ContainerCounter/>
+        <Logo />
+        <ContainerCounter />
       </div>
     );
   }

@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import Button from './Button';
 import '../css/App.css'
 
-class ContainerButton extends Component {
+class ContainerLogo extends Component {
   render() {
     return (
       <div className="container-button flex">
-        <Button/>
-        <p className="text">Barajar</p>
+        <p className="text">Juego de cartas</p>
       </div>
     );
   }
 }
 
-export default ContainerButton;
+export default ContainerLogo;

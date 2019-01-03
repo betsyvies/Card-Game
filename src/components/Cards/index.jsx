@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
-import CardShadow from './CardShadow';
 import Card from './Card';
 import '../../css/App.css'
 
-//const cards = [{ value: 1 }, { value: 2 }, { value: 3 }, { value: 4 }]
-
 class ShowCard extends Component {
-  componentWillMount() {    
-    const { data, onGetCardRandom } = this.props
+  componentWillMount() {
+    const { data } = this.props
+    this.getRandomCard(data)
+  }
+
+  getRandomCard = data => {
     const numCards = this.randomCard(data)
     const arrCard = []
 
-    numCards.sort().map(e => this.getValueCard(e, data, 1, arrCard))
+    numCards.map(e => this.getValueCard(e, data, 1, arrCard))
     numCards.map(e => this.getValueCard(e, data, 2, arrCard))
-    onGetCardRandom(arrCard)
+    this.changePos(arrCard)
+  }
+
+  changePos = arrCard => {
+    const { onGetCardRandom } = this.props
+    let newArrCard = []
+    let arrRandom = [0, 1, 2, 3, 6, 7, 5, 4]
+
+    arrRandom.map(i => newArrCard.push(arrCard[i]))
+    onGetCardRandom(newArrCard)
   }
 
   getValueCard = (numCard, data, num, arrCard) => {
     data.map(e => {
       return e.value
-            .filter(i => i.id === numCard)
-            .map((i) => arrCard.push({id: i.id + num, image: i.image, disabled: false}))
+        .filter(i => i.id === numCard)
+        .map((i) => arrCard.push({ id: i.id + num, image: i.image, disabled: false }))
     })
   }
 
@@ -34,10 +44,10 @@ class ShowCard extends Component {
   }
 
   render() {
-    const { cardsRandom, ids, onGetIdCard, data, onChangeData, onGetCardRandom, onCountCouples } = this.props
+    const { cardsRandom, ids, onGetIdCard, data, totalCouples, onGetCardRandom, onCountCouples } = this.props
     return (
       <div className="container-cards">
-        {cardsRandom.map((elem, index) => <Card key={index} data={elem} dataSupport={cardsRandom} onGetIdCard={onGetIdCard} ids={ids} dataAll={data} onChangeData={onChangeData} onGetCardRandom={onGetCardRandom} onCountCouples={onCountCouples}/>)}
+        {cardsRandom.map((elem, index) => <Card key={index} data={elem} dataSupport={cardsRandom} onGetIdCard={onGetIdCard} ids={ids} dataAll={data} onGetCardRandom={onGetCardRandom} onCountCouples={onCountCouples} getRandomCard={this.getRandomCard} totalCouples={totalCouples} />)}
       </div>
     );
   }

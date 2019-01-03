@@ -6,15 +6,7 @@ export function getIdCard(ids) {
   };
 }
 
-/* Esta acción cambia el estado de la data */
-export function changeData(data) {
-  return {
-    type: 'CHANGE_DATA',
-    data
-  };
-}
-
-/* Esta acción cambia la data */
+/* Esta acción cambia las data de las cartas random */
 export function getCardRandom(cardsRandom) {
   return {
     type: 'GET_CARD_RANDOM',

@@ -7,8 +7,8 @@ class Body extends Component {
 	render() {
 		return (
 			<div className="body">
-			  <Header/>
-			  <Table/>
+				<Header />
+				<Table />
 			</div>
 		);
 	}

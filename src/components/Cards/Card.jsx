@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import CardShadow from '../../assets/images/others/card-reverse.png';
+import Swal from 'sweetalert2'
+import CardShadow from '../../assets/images/others/shadow.png';
+import Trophy from '../../assets/images/others/trophy.gif';
 import '../../css/App.css'
-var newDataCard = []
 
 class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      disabled: false
-    };
-  }
-
   onClickId = id => {
     const { onGetIdCard, ids } = this.props
 
@@ -23,57 +17,54 @@ class Card extends Component {
   }
 
   compIdCard = (ids) => {
-    const { dataAll, onChangeData, onGetIdCard } = this.props;
+    const { onGetIdCard } = this.props;
 
     let idCard = ids[0].slice(0, ids[0].length - 1)
     if (ids.length === 2) {
       let idCardPar = ids[1].slice(0, ids[1].length - 1)
       if (idCard === idCardPar) {
-        this.deletePosData(idCard, dataAll, onChangeData)
         this.deletePosCardRa(ids)
-
-        if (newDataCard.length === 4) {
-          onChangeData(newDataCard)
-          newDataCard = []
-        }
-      } else {
-        onGetIdCard([])
-      }
+        this.keepPlaying()
+      } else onGetIdCard([])
     }
   }
 
-  deletePosData = (id, data, onChangeData) => {
-    let newData = []
-    let idTypeStick = []
-    data.map(e => {
-      if (e.id === id.charAt(id.length - 1)) {
-        e.value.map(i => {
-          if (i.id !== id) newData.push({ id: i.id, image: i.image })
-        })
-        idTypeStick.push(e.id)
-      }
-    })
-
-    newDataCard.push({ id: idTypeStick[0], value: newData })
+  keepPlaying = () => {
+    const { dataAll, getRandomCard, totalCouples, onCountCouples } = this.props;
+    if (parseInt(totalCouples) === 3) {
+      Swal({
+        title: 'Felicidades!',
+        text: 'Emparejaste todas las cartas',
+        imageUrl: Trophy,
+        imageWidth: 300,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        animation: false,
+        confirmButtonText: 'Continuar jugando',
+      }).then((result) => {
+        if (result.value) {
+          getRandomCard(dataAll)
+          onCountCouples(0)
+        }
+      })
+    }
   }
 
   deletePosCardRa = ids => {
     const { dataSupport, onGetCardRandom, onGetIdCard } = this.props
     const data = [];
 
+    dataSupport.map((e) => data.push({ id: e.id, image: e.image, disabled: e.disabled }))
+
     ids.map(i => {
-      data.push({ id: i, image: CardShadow, disabled: true })
+      return data
+        .filter(e => e.id === i)
+        .map(e => {
+          e.image = CardShadow
+          e.disabled = true
+        })
     })
 
-    dataSupport.map(e => {
-      if (e.id !== ids[0] && e.id !== ids[1]) {
-        if (!e.disabled) {
-          data.unshift({ id: e.id, image: e.image, disabled: false })
-        } else {
-          data.unshift({ id: e.id, image: e.image, disabled: true })
-        }
-      }
-    })
     this.accountCouples(data)
     onGetCardRandom(data)
     onGetIdCard([])
@@ -82,19 +73,19 @@ class Card extends Component {
   accountCouples = (data) => {
     const { onCountCouples } = this.props
     let sumCouple = 0
-    data.map(e => {
-      if (e.disabled) {
-        sumCouple = sumCouple + 1
-      }
-    })
+
+    data.map(e => e.disabled ? sumCouple = sumCouple + 1 : console.log('err'))
     onCountCouples(sumCouple / 2)
   }
 
   render() {
     const { data } = this.props
     return (
-      <button onClick={(e) => { this.onClickId(data.id) }} className="button-card" disabled={data.disabled}>
-        <img src={data.image} className="image-card" />
+      <button
+        style={{ backgroundImage: 'url(' + data.image + ')' }}
+        onClick={(e) => { this.onClickId(data.id) }}
+        className="button-card"
+        disabled={data.disabled}>
       </button>
     );
   }
