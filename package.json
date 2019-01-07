@@ -2,23 +2,22 @@
   "name": "card-game-one",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https: //betsyvies.github.io/Card-Game/",
   "dependencies": {
-    "gh-pages": "^2.0.1",
+    "firebase": "^5.7.2",
+    "firebase-tools": "^6.2.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.2",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "sweetalert2": "^7.33.1"
+    "sweetalert2": "^7.33.1",
+    "webpack-dev-server": "^3.1.9"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
